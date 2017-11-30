@@ -35,20 +35,19 @@ start_pos, goal_pos = (0, 0), (19, 19)
 # I'll leave the construction of the array up to you, Below is an example of how to construct a single cell.
 
 # Make an empty np.array with dtype A_Star.cell:
-cost_map = np.empty([world.shape[0], world.shape[1]], dtype=A_Star.cell)
+# cost_map = np.empty([world.shape[0], world.shape[1]], dtype=A_Star.cell)
 # Populate the cost_map with cells. Arguments are the costs to travel to adjacent cells.
 # You could do this in a loop or by hand (if it's a small map)
 # If you can only travel up, down, left, and right, only worry about north, south, east, and west.
-# The shown values are randomly chosen.
-# cost_map[0][0] = A_Star.cell(north=1, south=2, east=3, west=4, northeast=0, southeast=0, southwest=0, northwest=0)
-for x in range(0, cost_map.shape[0]):
-	for y in range(0, cost_map.shape[1]):
-		cost_map[x][y] = A_Star.cell(1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0)
+# The shown values are randomly chosen:
+# for x in range(0, cost_map.shape[0]):
+# 	for y in range(0, cost_map.shape[1]):
+# 		cost_map[x][y] = A_Star.cell(2.0, 1.0, 4.0, 6.0, 3.0, 5.0, 2.5, 1.1)
 
 
 def main():
 	# Send the world and start and end postions to the algorithm. Return solution and cost.
-	solution, cost = A_Star.algo(world, start_pos, goal_pos, cost_map)
+	solution, cost = A_Star.algo(world, start_pos, goal_pos, cost_map=None)
 	print(f"Solution cost was {cost}.")
 	# Make a copy of the world, and plot the solution path on it
 	solved_world = np.array(world, copy=True)

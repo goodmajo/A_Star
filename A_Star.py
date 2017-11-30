@@ -68,8 +68,6 @@ def algo(world, start_pos, goal_pos, cost_map=None):
                 cost_to_arrive = 0.0
             else:
                 cost_to_arrive = get_edge_costs((x, y), cost_map[x][y])
-
-                print(cost_to_arrive)
             # temp_g_score will be used when we decide which child node is the best to move to next
             temp_g_score = g_score[current_pos] + heuristic(current_pos, child) + cost_to_arrive
             """ This is important! Are we actually looking at a node that exists in our world?
